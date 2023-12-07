@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 0.45,
+                childAspectRatio: 0.42,
               ),
               itemCount: store.state.value.length,
               itemBuilder: (context, index) {
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                           child: Image.network(item.coverUrl),
                         ),
                         Align(
-                          alignment: const Alignment(0.4, 4),
+                          alignment: Alignment.topRight,
                           child: IconButton(
                             icon: const Icon(
                               bookmark,
