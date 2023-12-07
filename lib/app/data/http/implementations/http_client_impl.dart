@@ -1,4 +1,4 @@
-import 'package:epub_kitty_example/app/data/models/http/http_client.dart';
+import 'package:epub_kitty_example/app/data/http/http_client.dart';
 import 'package:http/http.dart' as http;
 
 class HttpClient implements IHttpClient {
