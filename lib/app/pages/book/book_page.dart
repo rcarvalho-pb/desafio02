@@ -144,41 +144,35 @@ class _BookPage extends State<BookPage> {
                 child: Text(
                     '${item.path.isNotEmpty ? "Read Book" : "Download Book"}'),
                 onPressed: () async {
+                  print(item.path.isNotEmpty);
                   print("=====filePath======${item.path}");
                   if (item.path.isEmpty) {
                     download(item);
                   } else {
-                    print("=====filePath======${item.path}");
-                    if (item.path.isEmpty) {
-                      print("aqio 2");
-                      download(item);
-                    } else {
-                      print("aqui 3");
-                      VocsyEpub.setConfig(
-                        themeColor: Theme.of(context).primaryColor,
-                        identifier: "iosBook",
-                        scrollDirection: EpubScrollDirection.ALLDIRECTIONS,
-                        allowSharing: true,
-                        enableTts: true,
-                        nightMode: true,
-                      );
-                      // get current locator
-                      VocsyEpub.locatorStream.listen((locator) {
-                        print('LOCATOR: $locator');
-                      });
-                      print("FilePath ok, open vocsy");
-                      VocsyEpub.open(
-                        item.path,
-                        lastLocation: EpubLocator.fromJson({
-                          "bookId": "2239",
-                          "href": "/OEBPS/ch06.xhtml",
-                          "created": 1539934158390,
-                          "locations": {
-                            "cfi": "epubcfi(/0!/4/4[simple_book]/2/2/6)"
-                          }
-                        }),
-                      );
-                    }
+                    VocsyEpub.setConfig(
+                      themeColor: Theme.of(context).primaryColor,
+                      identifier: "iosBook",
+                      scrollDirection: EpubScrollDirection.ALLDIRECTIONS,
+                      allowSharing: true,
+                      enableTts: true,
+                      nightMode: true,
+                    );
+                    // get current locator
+                    VocsyEpub.locatorStream.listen((locator) {
+                      print('LOCATOR: $locator');
+                    });
+                    print("FilePath ok, open vocsy");
+                    VocsyEpub.open(
+                      item.path,
+                      lastLocation: EpubLocator.fromJson({
+                        "bookId": "2239",
+                        "href": "/OEBPS/ch06.xhtml",
+                        "created": 1539934158390,
+                        "locations": {
+                          "cfi": "epubcfi(/0!/4/4[simple_book]/2/2/6)"
+                        }
+                      }),
+                    );
                   }
                 }),
           ]),

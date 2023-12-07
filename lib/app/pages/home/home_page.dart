@@ -1,17 +1,8 @@
-import 'dart:developer';
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:epub_kitty_example/app/data/http/implementations/http_client_impl.dart';
-import 'package:epub_kitty_example/app/data/models/book_model.dart';
 import 'package:epub_kitty_example/app/data/repositories/implementations/book_repository_impl.dart';
 import 'package:epub_kitty_example/app/pages/book/book_page.dart';
 import 'package:epub_kitty_example/app/pages/home/store/book_store.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:vocsy_epub_viewer/epub_viewer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -87,9 +78,6 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 final item = store.state.value[index];
                 const bookmark = Icons.bookmark_outline;
-                // setState(() {
-                //   filePath = item.path;
-                // });
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -118,7 +106,9 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.yellow,
                               size: 50,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              print("oi");
+                            },
                           ),
                         ),
                       ],
